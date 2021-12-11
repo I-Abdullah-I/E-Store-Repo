@@ -1,0 +1,48 @@
+/* Main secoundry */
+.basic-button {
+  opacity: 1;
+  border: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.basic-button:focus {
+  text-decoration: none;
+}
+
+.main-primary {
+  font-size: 18px;
+  height: 65px;
+  width: 230px;
+  background: transparent linear-gradient(90deg, #680dd1 0%, #c93ccc 100%) 0% 0%
+    no-repeat padding-box;
+  opacity: 1;
+  color: white;
+}
+/* Main secoundry */
+.main-secoundry {
+  font-size: 18px;
+  height: 65px;
+  width: 230px;
+  background: white;
+  opacity: 1;
+  color: #690ad2;
+}
+
+/* Main third */
+.main-third {
+  font-size: 18px;
+  background: white;
+  opacity: 1;
+  color: #6e648c;
+  border-bottom: solid 2px;
+  border-color: #c93ccc;
+  padding-bottom: 8px;
+}
+
+/* Main scroll */
+.main-scroll {
+  color: white;
+  background-color: transparent;
+  font-size: 18px;
+}

@@ -1,0 +1,15 @@
+.App {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  overflow: auto;
+  scroll-behavior: smooth;
+  max-width: 100%;
+}
+
+.content-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+}
