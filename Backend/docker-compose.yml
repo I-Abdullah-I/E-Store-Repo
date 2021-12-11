@@ -12,14 +12,19 @@ services:
       - ./.env
     depends_on:
       - db
+    networks:
+      - myWe
   db:
-    image: postgres:13.0-alpine
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=DS_DB
+      - ./data:/data/db
+    networks:
+      - myWe
 
-volumes:
-  postgres_data:
+
+networks:
+  myWe:
+    drive

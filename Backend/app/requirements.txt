@@ -1,5 +1,5 @@
 Django==3.2.9
-psycopg2-binary==2.9.1
-architect
 djangorestframework
 django-cors-headers
+djongo
+pymongo==3.12.1
