@@ -53,8 +53,8 @@ class UserInfoAPI(APIView):
                 'full_name':request.user.full_name, 'email':str(request.user), 'type': request.user.type, 'balance': request.user.balance, 'my_store':owned_store.name,
                 'all_items_in_my_store':all_items.values(), 'my_unsold_items':unsold_items, 'my_sold_items':res
             }
-            vendorserializer = VendorSerializer(result)
-            return Response(data=vendorserializer.data)
+            # vendorserializer = VendorSerializer(result)
+            return Response(result)
         elif request.user.type == User.ADMIN:
             result = {
                 'full_name':request.user.full_name, 'email':str(request.user), 'type': request.user.type
