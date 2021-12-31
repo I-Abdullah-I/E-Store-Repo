@@ -16,7 +16,7 @@ import { observer } from "mobx-react";
 export const ProfilePage = observer(() => {
   const { authStore } = useStores();
   const { getUserData, user, getUserState, addBalance } = authStore;
-
+  console.log("USer", user);
   useEffect(() => {
     async function getData() {
       getUserData();
@@ -57,37 +57,39 @@ export const ProfilePage = observer(() => {
               </a>
               <a href="#">{user.balance ? user.balance : 0}</a>
 
-              <div>
-                <Box
-                  component="form"
-                  noValidate
-                  onSubmit={handleSubmit}
-                  sx={{ mt: 3 }}
-                >
-                  <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="balance"
-                        label="Amount to add"
-                        name="balance"
-                        autoComplete="balance"
-                      />
+              {user.type === "E" ? (
+                <div>
+                  <Box
+                    component="form"
+                    noValidate
+                    onSubmit={handleSubmit}
+                    sx={{ mt: 3 }}
+                  >
+                    <Grid container spacing={2}>
+                      <Grid item xs={6}>
+                        <TextField
+                          required
+                          fullWidth
+                          id="balance"
+                          label="Amount to add"
+                          name="balance"
+                          autoComplete="balance"
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          sx={{ mt: 3, mb: 2 }}
+                        >
+                          Save
+                        </Button>
+                      </Grid>
                     </Grid>
-                    <Grid item xs={6}>
-                      <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
-                      >
-                        Save
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </div>
+                  </Box>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

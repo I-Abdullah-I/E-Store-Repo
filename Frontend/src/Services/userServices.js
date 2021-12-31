@@ -27,7 +27,6 @@ async function signup(data) {
 
 async function login(data) {
   const response = await http.post("user/login", data);
-  localStorage.setItem("token", JSON.stringify(response.data.token));
   return response.data.token;
 }
 

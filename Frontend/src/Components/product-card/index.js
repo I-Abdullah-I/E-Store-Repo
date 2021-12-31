@@ -4,7 +4,7 @@ import { useStores } from "../../hooks/useStores";
 export const ProductCard = props => {
   const { authStore } = useStores();
   const { buyProduct } = authStore;
-  const { price, title, disc, id } = props;
+  const { price, title, disc, id, quantity } = props;
   return (
     // <div className="wrapper">
     <div className="outer">
@@ -12,6 +12,7 @@ export const ProductCard = props => {
         <span className="bg animated fadeInDown">EXCLUSIVE</span>
         <h1>{title}</h1>
         <p>{disc}</p>
+        <div>Quantity: {quantity}</div>
 
         <div className="button">
           <a href="#">{price}</a>

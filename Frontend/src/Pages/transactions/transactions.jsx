@@ -31,7 +31,7 @@ export const TransactionsTable = observer(() => {
   if (!records) {
     return <div style={{ marginBottom: "16px" }}>No Records</div>;
   }
-
+  console.log("hiiiiiiiiiiiiiiiiiiiiiiiiii");
   return (
     <>
       <TableContainer
@@ -48,18 +48,30 @@ export const TransactionsTable = observer(() => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {records.map(row => (
-              <TableRow
-                key={row.item_id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.item_id}
-                </TableCell>
-                <TableCell align="right">{row.quantity}</TableCell>
-                <TableCell align="right">{row.date_created}</TableCell>
-              </TableRow>
-            ))}
+            {records.map(row => {
+              let originalDate = new Date(row.date_created);
+              console.log("This is the original Date", originalDate);
+              let formatedDate = originalDate.toLocaleString([], {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                hout12: true
+              });
+              return (
+                <TableRow
+                  key={row.item_id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.item_id}
+                  </TableCell>
+                  <TableCell align="right">{row.quantity}</TableCell>
+                  <TableCell align="right">{formatedDate}</TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>

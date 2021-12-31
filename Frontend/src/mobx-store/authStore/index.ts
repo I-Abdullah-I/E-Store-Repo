@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { history } from "../../helpers";
 import { userServices } from "../../Services/userServices";
 import { ApiCallStates } from "../types";
+
 export default class AuthStore {
   constructor() {
     makeAutoObservable(this);
@@ -37,8 +38,9 @@ export default class AuthStore {
   login = async (data: any) => {
     try {
       const authTokens = await userServices.login(data);
+      await localStorage.setItem("token", JSON.stringify(authTokens));
       this.token = authTokens;
-      history.push("/");
+      window.location.replace("/");
     } catch (error) {
       alert("can't Login with this credentials");
     }
@@ -111,9 +113,15 @@ export default class AuthStore {
   buyProduct = async (quantity: any, id: any) => {
     try {
       await userServices.buyProduct(quantity, id);
+      this.products.forEach((products: any, index: any) => {
+        if (products.id === id) {
+          this.products[index].quantity =
+            this.products[index].quantity - quantity;
+        }
+      });
       alert("Item Bought");
     } catch (error) {
-      console.log(error);
+      alert("failed to Buy the item");
     }
   };
   addBalance = async (data: any) => {

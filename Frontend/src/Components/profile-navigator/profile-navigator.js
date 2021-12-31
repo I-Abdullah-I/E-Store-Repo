@@ -54,9 +54,9 @@ export const ProfileNavigator = props => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem>
-        <Link to="/"> {userType === "E" ? "Market" : "Admin"}</Link>
-      </MenuItem>
+      <Link to="/">
+        <MenuItem>{userType === "E" ? "Market" : "Admin"}</MenuItem>
+      </Link>
       <MenuItem onClick={() => logout()}>logout</MenuItem>
     </Menu>
   );

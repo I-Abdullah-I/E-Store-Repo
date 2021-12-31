@@ -106,6 +106,7 @@ export const ProductsTable = observer(() => {
                     variant="contained"
                     color="error"
                     onClick={() => deleteProduct(row.id)}
+                    style={{ marginLeft: "8px" }}
                   >
                     Delete
                   </Button>

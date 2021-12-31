@@ -92,9 +92,9 @@ export const MarketNavigator = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem>
-        <Link to="/profile"> Profile</Link>
-      </MenuItem>
+      <Link to="/profile">
+        <MenuItem>Profile</MenuItem>
+      </Link>
       <MenuItem>
         <Link to="/market/transactions"> Transactions</Link>
       </MenuItem>
@@ -114,15 +114,6 @@ export const MarketNavigator = () => {
           >
             Market Area
           </Typography>
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "flex", md: "flex" } }}>
             <IconButton

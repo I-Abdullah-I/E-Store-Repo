@@ -17,7 +17,7 @@ import { sidebarItems, drawerWidth } from "./constants";
 // import { Link } from "@material-ui/core";
 export const AdminNavigator = () => {
   const { authStore } = useStores();
-  const { logout } = authStore;
+  const { logout, user } = authStore;
   return (
     <div>
       <CssBaseline />
@@ -27,7 +27,7 @@ export const AdminNavigator = () => {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Admin Area
+            {user.has_store}
           </Typography>
         </Toolbar>
       </AppBar>
