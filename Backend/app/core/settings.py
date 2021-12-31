@@ -104,16 +104,14 @@ CORS_ALLOWED_ORIGINS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-DATABASES = {​​​
-     "default": {​​​
+    "default": {
         "ENGINE": 'djongo',
         "NAME": 'e_store_db',
         "ENFORCE_SCHEMA":False,
-        "CLIENT": {​​​
+        "CLIENT": {
             "host": "db:26061",
-        }​​​
-
-    }​​​
+        }
+    }
 }
 
 
